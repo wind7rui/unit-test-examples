@@ -2,7 +2,6 @@ package com.example.service.impl;
 
 import com.example.model.Student;
 import com.example.service.StudentService;
-import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,7 @@ public class StudentServiceImplTest extends AbstractTransactionalJUnit4SpringCon
     private StudentService studentService;
 
     @Test
-    public void test() {
+    public void shouldExecuteSuccess() {
         Student student = new Student();
         student.setNumber("SX001");
         student.setName("张三");
@@ -30,5 +29,16 @@ public class StudentServiceImplTest extends AbstractTransactionalJUnit4SpringCon
         student.setClazz(2);
         studentService.save(student);
 
+        Student s = studentService.selectByNumber("SX001");
+        Assert.assertEquals(s.getName(), "张三");
+
+        student.setName("李四");
+        studentService.update(student);
+        s = studentService.selectByNumber("SX001");
+        Assert.assertEquals(s.getName(), "李四");
+
+        studentService.delete(s.getId());
+        s = studentService.selectByNumber("SX001");
+        Assert.assertNull(s);
     }
 }

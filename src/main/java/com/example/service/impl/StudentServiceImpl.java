@@ -15,4 +15,16 @@ public class StudentServiceImpl implements StudentService {
     public int save(Student student) {
         return studentMapper.save(student);
     }
+
+    public Student selectByNumber(String number) {
+        return studentMapper.selectByNumber(number);
+    }
+
+    public int update(Student student) {
+        return studentMapper.update(student);
+    }
+
+    public int delete(long id) {
+        return studentMapper.delete(id);
+    }
 }
