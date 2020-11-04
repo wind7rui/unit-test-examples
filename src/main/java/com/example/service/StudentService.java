@@ -10,4 +10,6 @@ public interface StudentService {
     int update(Student student);
 
     int delete(long id);
+
+    int saveAndUpdate(Student student);
 }

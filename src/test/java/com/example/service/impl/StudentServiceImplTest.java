@@ -41,4 +41,25 @@ public class StudentServiceImplTest extends AbstractTransactionalJUnit4SpringCon
         s = studentService.selectByNumber("SX001");
         Assert.assertNull(s);
     }
+
+    @Test
+    public void shouldRollbackWhenThrowRuntimeException() {
+        Student student = new Student();
+        student.setNumber("SX001");
+        student.setName("张三");
+        student.setAge(11);
+        student.setSex(1);
+        student.setGrade(1);
+        student.setClazz(2);
+
+        try {
+            studentService.saveAndUpdate(student);
+        } catch (Exception e) {
+            // doSomething
+            System.out.println(e.getMessage());
+        }
+
+        Student s = studentService.selectByNumber("SX001");
+        Assert.assertNull(s);
+    }
 }
