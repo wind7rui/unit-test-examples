@@ -19,7 +19,7 @@ public class StudentServiceImplTest extends AbstractTransactionalJUnit4SpringCon
     private StudentService studentService;
 
     @Test
-    public void shouldExecuteSuccess() {
+    public void shouldExecuteSuccessWhenCrud() {
         Student student = new Student();
         student.setNumber("SX001");
         student.setName("张三");
