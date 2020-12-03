@@ -1,6 +1,7 @@
 package com.example.service.impl;
 
 import com.example.dao.StudentMapper;
+import com.example.exception.DaoRuntimeException;
 import com.example.model.Student;
 import com.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,22 @@ public class StudentServiceImpl implements StudentService {
 
         // 抛java.lang.NumberFormatException
         Long.valueOf(student.getNumber()) ;
+
+        update(student);
+
+        return 1;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public int saveThenUpdate(Student student) {
+        save(student);
+
+        try {
+            // 抛java.lang.NumberFormatException
+            Long.valueOf(student.getNumber()) ;
+        } catch (NumberFormatException e) {
+            throw new DaoRuntimeException("10010001", "Student Number Error" ,e);
+        }
 
         update(student);
 
