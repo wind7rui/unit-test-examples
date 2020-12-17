@@ -4,8 +4,8 @@ CREATE TABLE `student` (
   `name` varchar(30) NOT NULL DEFAULT '' COMMENT '姓名',
   `age` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '年龄',
   `sex` tinyint(1) unsigned NOT NULL COMMENT '性别 1-男 2-女',
-  `grade` tinyint(1) unsigned NOT NULL COMMENT '年级',
-  `clazz` tinyint(1) unsigned NOT NULL COMMENT '班级',
+  `gradeId` bigint(20) unsigned NOT NULL COMMENT '年级编号',
+  `clazzId` bigint(20) unsigned NOT NULL COMMENT '班级编号',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_key_number` (`number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

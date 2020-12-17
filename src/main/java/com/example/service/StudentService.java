@@ -5,7 +5,7 @@ import com.example.model.Student;
 public interface StudentService {
     int save(Student student);
 
-    Student selectByNumber(String number);
+    Student selectByNo(String no);
 
     int update(Student student);
 
@@ -14,4 +14,11 @@ public interface StudentService {
     int saveAndUpdate(Student student);
 
     int saveThenUpdate(Student student);
+
+    /**
+     * 根据学号统计所在班级的学生总数
+     * @param no
+     * @return
+     */
+    long countClazzStudent(String no);
 }

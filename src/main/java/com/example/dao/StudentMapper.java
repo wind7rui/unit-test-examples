@@ -6,7 +6,7 @@ public interface StudentMapper {
 
     int save(Student student);
 
-    Student selectByNumber(String number);
+    Student selectByNo(String no);
 
     int update(Student student);
 

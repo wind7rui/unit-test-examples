@@ -1,15 +1,18 @@
 package com.example.model;
 
+/**
+ * 学生信息
+ */
 public class Student {
 
     /**
      * 主键
      */
-    private long id;
+    private Long id;
     /**
      * 学号
      */
-    private String number;
+    private String no;
     /**
      * 姓名
      */
@@ -25,26 +28,26 @@ public class Student {
     /**
      * 年级
      */
-    private int grade;
+    private Long gradeId;
     /**
      * 班级
      */
-    private int clazz;
+    private Long clazzId;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getNo() {
+        return no;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNo(String no) {
+        this.no = no;
     }
 
     public String getName() {
@@ -71,32 +74,32 @@ public class Student {
         this.sex = sex;
     }
 
-    public int getGrade() {
-        return grade;
+    public Long getGradeId() {
+        return gradeId;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
     }
 
-    public int getClazz() {
-        return clazz;
+    public Long getClazzId() {
+        return clazzId;
     }
 
-    public void setClazz(int clazz) {
-        this.clazz = clazz;
+    public void setClazzId(Long clazzId) {
+        this.clazzId = clazzId;
     }
 
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", number='" + number + '\'' +
+                ", no='" + no + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
-                ", grade=" + grade +
-                ", clazz=" + clazz +
+                ", grade=" + gradeId +
+                ", clazz=" + clazzId +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package com.example.service.impl;
 import com.example.dao.StudentMapper;
 import com.example.exception.DaoRuntimeException;
 import com.example.model.Student;
+import com.example.service.ClazzService;
 import com.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,15 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentMapper studentMapper;
 
+    @Autowired
+    private ClazzService clazzService;
+
     public int save(Student student) {
         return studentMapper.save(student);
     }
 
-    public Student selectByNumber(String number) {
-        return studentMapper.selectByNumber(number);
+    public Student selectByNo(String no) {
+        return studentMapper.selectByNo(no);
     }
 
     public int update(Student student) {
@@ -36,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
         save(student);
 
         // 抛java.lang.NumberFormatException
-        Long.valueOf(student.getNumber()) ;
+        Long.valueOf(student.getNo()) ;
 
         update(student);
 
@@ -49,7 +53,7 @@ public class StudentServiceImpl implements StudentService {
 
         try {
             // 抛java.lang.NumberFormatException
-            Long.valueOf(student.getNumber()) ;
+            Long.valueOf(student.getNo()) ;
         } catch (NumberFormatException e) {
             throw new DaoRuntimeException("10010001", "Student Number Error" ,e);
         }
@@ -57,5 +61,11 @@ public class StudentServiceImpl implements StudentService {
         update(student);
 
         return 1;
+    }
+
+    public long countClazzStudent(String no) {
+        Student student = studentMapper.selectByNo(no);
+
+        return clazzService.countByClazzId(student.getClazzId());
     }
 }

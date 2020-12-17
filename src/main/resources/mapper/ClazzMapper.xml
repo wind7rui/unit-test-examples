@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ClazzMapper">
+    <insert id="save" parameterType="com.example.model.Clazz" useGeneratedKeys="true" keyProperty="id">
+        insert into clazz (clazzId,clazzName,teacherName) values (#{clazzId},#{clazzName},#{teacherName})
+    </insert>
+
+    <select id="selectByClassId" resultType="com.example.model.Clazz">
+        select * from clazz where clazzId = #{clazzId}
+    </select>
+
+    <update id="update" parameterType="com.example.model.Clazz">
+        update clazz set clazzName = #{clazzName},teacherName=#{teacherName} where clazzId = #{clazzId}
+    </update>
+
+    <select id="countByClazzId" resultType="java.lang.Long">
+        select count(1) from clazz where clazzId = #{clazzId}
+    </select>
+</mapper>
