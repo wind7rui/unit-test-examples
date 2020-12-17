@@ -22,7 +22,6 @@
         </property>
     </bean>
 
-    <!-- 使用H2数据库 -->
     <bean id="h2Server" class="org.h2.tools.Server"
           factory-method="createTcpServer" init-method="start" destroy-method="stop">
         <constructor-arg value="-tcp,-tcpAllowOthers,-tcpPort,9092"/>
@@ -40,6 +39,7 @@
 
     <jdbc:initialize-database data-source="h2DataSource">
         <jdbc:script location="classpath:sql/student.sql"/>
+        <!-- <jdbc:script location="classpath:data/init.sql"/> -->
     </jdbc:initialize-database>
 
     <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
