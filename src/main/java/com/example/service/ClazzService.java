@@ -10,5 +10,5 @@ public interface ClazzService {
 
     Clazz selectByClassId(Long clazzId);
 
-    long countByClazzId(Long clazzId);
+    Clazz selectByClassNo(String clazzNo);
 }

@@ -16,9 +16,9 @@ public interface StudentService {
     int saveThenUpdate(Student student);
 
     /**
-     * 根据学号统计所在班级的学生总数
+     * 根据学号统计所在班级的老师名称
      * @param no
      * @return
      */
-    long countClazzStudent(String no);
+    String selectTeacherName(String no);
 }

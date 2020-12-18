@@ -39,6 +39,7 @@
 
     <jdbc:initialize-database data-source="h2DataSource">
         <jdbc:script location="classpath:sql/student.sql"/>
+        <jdbc:script location="classpath:sql/clazz.sql"/>
         <!-- <jdbc:script location="classpath:data/init.sql"/> -->
     </jdbc:initialize-database>
 

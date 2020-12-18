@@ -24,7 +24,8 @@ public class ClazzServiceImpl implements ClazzService {
         return clazzMapper.selectByClassId(clazzId);
     }
 
-    public long countByClazzId(Long clazzId) {
-        return clazzMapper.countByClazzId(clazzId);
+    public Clazz selectByClassNo(String clazzNo) {
+        return clazzMapper.selectByClassNo(clazzNo);
     }
+
 }

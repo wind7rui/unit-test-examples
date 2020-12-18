@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.example.dao.StudentMapper;
 import com.example.exception.DaoRuntimeException;
+import com.example.model.Clazz;
 import com.example.model.Student;
 import com.example.service.ClazzService;
 import com.example.service.StudentService;
@@ -63,9 +64,11 @@ public class StudentServiceImpl implements StudentService {
         return 1;
     }
 
-    public long countClazzStudent(String no) {
+    public String selectTeacherName(String no) {
         Student student = studentMapper.selectByNo(no);
 
-        return clazzService.countByClazzId(student.getClazzId());
+        Clazz clazz = clazzService.selectByClassId(student.getClazzId());
+
+        return null == clazz ? "none" : clazz.getTeacherName();
     }
 }
